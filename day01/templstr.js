@@ -14,3 +14,4 @@ let address2 = 'ftp://www.baidu.com';
 // repeat(数字)
 let a = 'x';
 console.log(a.repeat(3)); //  xxx
+
