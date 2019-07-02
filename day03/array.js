@@ -28,3 +28,25 @@ Array.prototype.findIndex = function (fn) {
         }
     }
 }
+
+Array.prototype.some = function (fn) {
+    for (let i = 0; i < this.length; i++) {
+        let flag = fn(this[i]);
+        if (flag) {
+            return flag;
+        }
+    }
+};
+Array.prototype.every = function (fn) {
+    for (let i = 0; i < this.length; i++) {
+        let flag = fn(this[i]);
+        if (!flag) {
+            return false;
+        }
+    }
+};
+function print() {
+    let arr = Array.prototype.slice.call(arguments);
+    console.log(arr);
+}
+print(1, 3, 2, 4);
