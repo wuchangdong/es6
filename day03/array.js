@@ -48,5 +48,9 @@ Array.prototype.every = function (fn) {
 function print() {
     let arr = Array.prototype.slice.call(arguments);
     console.log(arr);
+    // 类数组转为正常数组
+    arr = Array.form(arguments);
+    console.log(arr);
 }
 print(1, 3, 2, 4);
+
