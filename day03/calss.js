@@ -35,3 +35,17 @@ function _classCallCheck(instance, Constructor) {
         throw new TypeError('Cannot call a calss as a function');
     }
 }
+
+
+
+class Child extends Parent {
+    constructor(name, age) {
+        // 指的是父类的构造函数
+        super(name);
+        this.age = age;
+    }
+
+    getAge() {
+        console.log(this.age);
+    }
+}
