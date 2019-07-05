@@ -61,7 +61,12 @@
 });
 
 // 如果字符串为'' 变为 null
-const obj = {};
+const obj = {
+    a: '',
+    b: 1
+};
 const newObj = Object.keys(obj).reduce((ret, key) => {
     ret[key] = obj[key] === '' ? null : obj[key];
+    return ret;
 }, {});
+console.log(newObj);
