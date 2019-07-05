@@ -31,7 +31,7 @@ function () {
 
 // 如果这个实例不是这个构造函数的实例的话，就报错 不能把一个类当成函数来用
 function _classCallCheck(instance, Constructor) {
-    if(!(instance instanceof Constructor)) {
+    if (!(instance instanceof Constructor)) {
         throw new TypeError('Cannot call a calss as a function');
     }
 }
@@ -49,3 +49,4 @@ class Child extends Parent {
         console.log(this.age);
     }
 }
+
