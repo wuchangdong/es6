@@ -2,7 +2,9 @@
  * @file promise
  * @author: wuchangdong
  */
+let Promise = require('./myPromise');
 
+console.dir(Promise);
 
 let p = new Promise(function (resolve, reject) {
     let num = Math.random() * 10;
