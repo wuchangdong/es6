@@ -16,10 +16,9 @@ let p = new Promise(function (resolve, reject) {
         }
     // }, 2000);
 });
-console.log(p);
+
 p.then(res => {
     console.log(res);
 }, rej => {
     console.log(rej);
 });
-console.log(p);
