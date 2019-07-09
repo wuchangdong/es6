@@ -37,16 +37,33 @@ function Promise(task) {
 
 Promise.prototype.then = function (onFulfilled, onReject) {
     let that = this;
+    let promise2;
     if (that.status === 'fulfilled') {
-        onFulfilled();
+        promise2 = new Promise(function (resolve, reject) {
+            let x = onFulfilled(that.value);
+            resolve(x);
+        });
     }
     if (that.status === 'rejected') {
-        onReject();
+        promise2 = new Promise(function (resolve, reject) {
+            let x = onReject(that.value);
+            reject(x);
+        });
     }
     if (that.status === 'pending') {
-        that.onResolvedCallbacks.push(onFulfilled);
-        that.onRejectdCallbacks.push(onReject);
+        promise2 = new Promise(function (resolve, reject) {
+            that.onResolvedCallbacks.push(function () {
+                let x = onFulfilled(that.value);
+                resolve(x);
+            });
+            that.onRejectdCallbacks.push(function () {
+                let x = onFulfilled(that.value);
+                reject(x);
+            });
+        });
     }
+
+    return promise2;
 };
 
 module.exports = Promise;
